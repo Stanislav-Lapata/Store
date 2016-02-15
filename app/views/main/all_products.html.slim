@@ -1,0 +1,13 @@
+a ui-sref="newProduct" New product
+.products ng-repeat="product in products"
+  h2
+    a.name_products ui-sref="product({ id: product.id })" {{product.name}}
+    small
+      a ui-sref="updateProduct({ id: product.id })" Update
+      a href="" ng-click="destroyProduct(product)" Delete
+  .image_products ng-repeat="image in product.images"
+    img.img-thumbnail ng-src="{{image.name.url}}"
+  .description_products
+    | {{product.description}}
+  .price_products
+    | {{product.price | currency}}

@@ -1,0 +1,19 @@
+form ng-submit="saveProduct()"
+  .form-group
+    label Name
+    input.form-control type="text" ng-init="newProduct.name = ''" ng-model="newProduct.name"
+    .text-danger ng-repeat="error in errors"
+      | {{error.name}}
+  .form-group
+    label Description
+    textarea.form-control rows="3" ng-model="newProduct.description"
+    .text-danger ng-repeat="error in errors"
+      | {{error.description}}
+  .form-group
+    label Price
+    input.form-control type="text" ng-model="newProduct.price"
+    .text-danger ng-repeat="error in errors"
+      | {{error.price}}
+  input.btn.btn-default  type="submit" value="Create product"
+
+a ui-sref="products" Back
