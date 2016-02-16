@@ -1,4 +1,4 @@
 angular.module("Store")
   .factory('Image', ['$resource', function($resource){
-    return $resource('/api/images/:id', {id: '@id'});
+    return $resource('/api/v1/images/:id', {id: '@id'});
   }]);

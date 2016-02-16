@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   root 'main#index'
-  scope 'api' do
-    resources :categories do
-      resources :products, except: :new
+  namespace :api do
+    namespace :v1 do
+        resources :categories do
+          resources :products, except: :new
+        end
+        resources :images, only: [:create, :destroy]
     end
-    resources :images, only: [:create, :destroy]
   end
   get 'all_categories' => 'main#all_categories'
   get 'new_category' => 'main#new_category'

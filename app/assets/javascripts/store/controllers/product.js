@@ -10,7 +10,7 @@ angular.module("Store")
       });
       $scope.addImage = function() {
         Upload.upload({
-          url:'http://localhost:3000/api/images',
+          url:'http://localhost:3000/api/v1/images',
           data: {image: {name: $scope.image, product_id: id}}})
           .then(function (resp) {
             $scope.product.images.push(resp.data)
