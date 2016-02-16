@@ -18,7 +18,7 @@ angular.module("Store")
           });
         };
       $scope.destroyImage = function(image) {
-        Image.remove(image).$promise.then(function() {
+        Image.remove({id: image.id}).$promise.then(function() {
           var index = $scope.product.images.indexOf(image);
           $scope.product.images.splice(index, 1);
           $scope.product.images[0].next = true

@@ -5,7 +5,7 @@ angular.module("Store")
     $scope.category_id = $stateParams.category_id
     $scope.newProduct = Product.get({category_id: $scope.category_id, id: id})
     $scope.saveProduct = function() {
-      Product.update($scope.newProduct).$promise.then(
+      Product.update({category_id: $scope.category_id, id: id, product: $scope.newProduct}).$promise.then(
       function(response) {
         $scope.newProduct = {};
         $state.go('product', {category_id: $scope.category_id, id: response.id});

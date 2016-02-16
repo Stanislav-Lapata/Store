@@ -5,7 +5,7 @@ h1.text-center
 div.carousel.slide id="carousel-example-generic" data-ride="carousel"
   div.carousel-inner role="listbox"
     div.item.image_carousel ng-repeat="image in product.images" ng-class="{active: image.active, next: active}"
-      img#image_product ng-src="{{image.name.url}}"
+      img#image_product ng-src="{{image.name}}"
       ol class="carousel-indicators"
         li ng-click="destroyImage(image)"
   a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"

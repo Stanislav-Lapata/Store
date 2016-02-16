@@ -2,41 +2,41 @@ module Api
   module V1
     class CategoriesController < ApplicationController
       def index
-        render json: Category.all.includes(:products), include: :products
+        @categories = Category.all
       end
 
       def show
-        render json: Category.find(params[:id]).as_json(include: {products: {include: :images}})
+        @category = Category.find(params[:id])
       end
 
       def create
-        category = Category.new(category_params)
-        if category.save
-          render json: category
+        @category = Category.new(category_params)
+        if @category.save
+          @category
         else
           errors = {}
-          category.errors.each do |key|
-            errors[key] = category.errors[key].join(", ")
+          @category.errors.each do |key|
+            errors[key] = @category.errors[key].join(", ")
           end
           render json: {errors: errors} , status: 422
         end
       end
 
       def update
-        category = Category.find(params[:id])
-        if category.update(category_params)
-          render json: category
+        @category = Category.find(params[:id])
+        if @category.update(category_params)
+          @category
         else
           errors = {}
-          category.errors.each do |key|
-            errors[key] = category.errors[key].join(", ")
+          @category.errors.each do |key|
+            errors[key] = @category.errors[key].join(", ")
           end
           render json: {errors: errors} , status: 422
         end
       end
 
       def destroy
-        render json: Category.destroy(params[:id])
+        Category.destroy(params[:id])
       end
 
       private

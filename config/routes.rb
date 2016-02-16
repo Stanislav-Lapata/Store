@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'main#index'
-  namespace :api do
+  namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-        resources :categories do
-          resources :products, except: :new
+        resources :categories, except: [:new, :edit] do
+          resources :products, except: [:index, :new, :edit]
         end
         resources :images, only: [:create, :destroy]
     end

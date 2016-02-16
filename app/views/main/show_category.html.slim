@@ -8,7 +8,7 @@ a ui-sref="newProduct({category_id: category.id})" New product
       a ui-sref="updateProduct({category_id: category.id, id: product.id})" Update
       a href="" ng-click="destroyProduct(product)" Delete
   .image_products
-    img.img-thumbnail ng-src="{{product.images[0].name.thumb.url}}"
+    img.img-thumbnail ng-src="{{product.image}}"
   .description_products
     | {{product.description}}
   .price_products
