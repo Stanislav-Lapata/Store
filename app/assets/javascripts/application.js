@@ -14,12 +14,12 @@
 //= require jquery_ujs
 
 //= require bootstrap-sprockets
-//= require bootstrap
 
 //= require angular
 //= require angular-resource
 //= require angular-ui-router
 //= require ng-file-upload
 
-//= require turbolinks
+//= require store/configs
+
 //= require_tree .

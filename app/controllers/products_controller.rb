@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
+    product.category_id = params[:category_id]
     if product.save
       render json: product
     else

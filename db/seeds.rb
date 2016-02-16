@@ -5,9 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+3.times {|i| Category.create(name: "Category#{i}")}
 10.times {|i| Product.create(name: "Product#{i+1}", price: i**2, description: "Description#{i+1}")}
-10.times {|i| Image.create(name: "iamge#{i+1}.jpg", product_id: i+1)}
-10.times {|i| Image.create(name: "iamge#{i+1}.jpg", product_id: i+1)}
-10.times {|i| Image.create(name: "iamge#{i+1}.jpg", product_id: i+1)}
+
 
 

@@ -1,0 +1,9 @@
+form ng-submit="saveCategory()"
+  .form-group
+    label Name
+    input.form-control type="text" ng-init="newCategory.name = ''" ng-model="newCategory.name"
+    .text-danger ng-repeat="error in errors"
+      | {{error.name}}
+  input.btn.btn-default  type="submit" value="Save category"
+
+a ui-sref="category({id: category_id})" Back

@@ -1,0 +1,7 @@
+a ui-sref="newCategory" New category
+.categories ng-repeat="category in categories"
+  h2
+    a.name_categories ui-sref="category({ id: category.id })" {{category.name}}
+    small
+      a ui-sref="updateCategory({ id: category.id })" Update
+      a href="" ng-click="destroyCategory(category)" Delete

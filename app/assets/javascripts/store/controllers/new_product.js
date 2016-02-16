@@ -1,11 +1,11 @@
 angular.module("Store")
-  .controller('NewProductCtrl', ['$scope', 'Product', '$state',
-    function($scope, Product, $state){
+  .controller('NewProductCtrl', ['$scope', 'Product', '$state', '$stateParams',
+    function($scope, Product, $state, $stateParams){
+      $scope.category_id = $stateParams.category_id
       $scope.saveProduct = function() {
-        Product.save($scope.newProduct).$promise.then(
+        Product.save({category_id: $scope.category_id, product: $scope.newProduct}).$promise.then(
         function(response) {
-          $scope.newProduct = {};
-          $state.go('product', {id: response.id, productParams: response});
+          $state.go('product', {category_id: $scope.category_id, id: response.id});
         }, function(error) {
           $scope.errors = error.data
         });

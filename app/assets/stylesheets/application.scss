@@ -22,14 +22,18 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.name_products {
-  margin-right: 10px;
-}
-
-.image_product {
-  display: inline-block;
+.description_product {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .image_products {
   text-align: center;
+}
+
+div.image_carousel, div.item {
+  text-align: center;
+}
+
+img#image_product {
+  display: inline-block;
 }

@@ -13,8 +13,14 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    binding.pry
-    render json: Image.destroy(params[:id])
+    image = Image.find(params[:id])
+    product = image.product
+    if product.images.length > 2
+      render json: Image.destroy(params[:id])
+    else
+      error = "Pictures cannot be less than two"
+      render json: {error: error}, status: 422
+    end
   end
 
   private

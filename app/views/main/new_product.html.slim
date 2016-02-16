@@ -14,6 +14,6 @@ form ng-submit="saveProduct()"
     input.form-control type="text" ng-model="newProduct.price"
     .text-danger ng-repeat="error in errors"
       | {{error.price}}
-  input.btn.btn-default  type="submit" value="Create product"
+  input.btn.btn-default  type="submit" value="Save product"
 
-a ui-sref="products" Back
+a ui-sref="category({id: category_id})" Back

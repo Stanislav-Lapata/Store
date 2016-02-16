@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
   root 'main#index'
   scope 'api' do
-    resources :products, except: :new
+    resources :categories do
+      resources :products, except: :new
+    end
     resources :images, only: [:create, :destroy]
   end
+  get 'all_categories' => 'main#all_categories'
+  get 'new_category' => 'main#new_category'
+  get 'show_category' => 'main#show_category'
+
   get 'all_products' => 'main#all_products'
   get 'show_product' => 'main#show_product'
   get 'new_product' => 'main#new_product'
 
   get '*product', to: 'main#index'
+  get '*category', to: 'main#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
