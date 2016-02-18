@@ -9,7 +9,12 @@ gem 'pry-rails'
 gem 'bootstrap-sass'
 
 gem 'carrierwave'
-gem "rmagick"
+gem 'rmagick'
+
+gem 'devise'
+gem 'devise_token_auth'
+
+gem 'activeadmin', github: 'activeadmin'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

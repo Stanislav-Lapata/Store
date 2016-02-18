@@ -22,4 +22,7 @@
 
 //= require store/configs
 
+//= require angular-cookie
+//= require ng-token-auth
+
 //= require_tree .

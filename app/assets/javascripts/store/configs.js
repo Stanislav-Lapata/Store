@@ -1,4 +1,4 @@
-angular.module("Store", ['ngResource', 'ui.router', 'ngFileUpload'])
+angular.module("Store", ['ngResource', 'ui.router', 'ngFileUpload', 'ng-token-auth'])
   .config(["$httpProvider", function($httpProvider) {
     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
   }])
@@ -42,4 +42,21 @@ angular.module("Store", ['ngResource', 'ui.router', 'ngFileUpload'])
           templateUrl: "new_product.html",
           controller: "UpdateProductCtrl"
         })
-  }]);
+        .state('registration', {
+          url: "/registration",
+          templateUrl: "registrations.html",
+          controller: "RegistrationCtrl"
+        })
+        .state('signIn', {
+          url: "/signin",
+          templateUrl: "sign_in.html",
+          controller: "SignInCtrl"
+        })
+  }])
+  .config(function($authProvider) {
+        $authProvider.configure({
+            apiUrl: '/api/v1',
+            emailRegistrationPath: '/auth',
+            signOutUrl: '/auth/sign_out'
+        });
+    });

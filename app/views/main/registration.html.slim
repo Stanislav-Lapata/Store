@@ -1,0 +1,27 @@
+form ng-submit="registrationForm()"
+  .form-group
+    label First name
+    input.form-control type="text" ng-init="newUser.first_name = ''" ng-model="newUser.first_name"
+    p.text-danger ng-repeat="error in errors.first_name"
+      | {{error}}
+  .form-group
+    label Last name
+    input.form-control type="text" ng-model="newUser.last_name"
+    p.text-danger ng-repeat="error in errors.last_name"
+      | {{error}}
+  .form-group
+    label Email
+    input.form-control type="email" ng-model="newUser.email"
+    p.text-danger ng-repeat="error in errors.email"
+      | {{error}}
+  .form-group
+    label Password
+    input.form-control type="password" ng-model="newUser.password"
+    p.text-danger ng-repeat="error in errors.password"
+      | {{error}}
+  .form-group
+    label Confirmation password
+    input.form-control type="password" ng-model="newUser.password_confirmation"
+    p.text-danger ng-repeat="error in errors.password_confirmation"
+      | {{error}}
+  input.btn.btn-default  type="submit" value="Registration"

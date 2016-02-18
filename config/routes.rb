@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root 'main#index'
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
@@ -8,6 +10,12 @@ Rails.application.routes.draw do
         resources :images, only: [:create, :destroy]
     end
   end
+  namespace :api do
+    scope :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth'
+    end
+  end
+
   get 'all_categories' => 'main#all_categories'
   get 'new_category' => 'main#new_category'
   get 'show_category' => 'main#show_category'
@@ -16,8 +24,12 @@ Rails.application.routes.draw do
   get 'show_product' => 'main#show_product'
   get 'new_product' => 'main#new_product'
 
+  get 'registrations' => 'main#registration'
+  get 'sign_in' => 'main#sign_in'
+
   get '*product', to: 'main#index'
   get '*category', to: 'main#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -66,11 +78,4 @@ Rails.application.routes.draw do
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end

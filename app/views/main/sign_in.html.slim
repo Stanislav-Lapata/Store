@@ -1,0 +1,10 @@
+p.text-danger ng-repeat="error in errors"
+  | {{error}}
+form ng-submit="signInForm()"
+  .form-group
+    label Email
+    input.form-control type="email" ng-model="signInUser.email"
+  .form-group
+    label Password
+    input.form-control type="password" ng-model="signInUser.password"
+  input.btn.btn-default  type="submit" value="Sign in"

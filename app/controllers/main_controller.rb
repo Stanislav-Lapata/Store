@@ -2,6 +2,7 @@ class MainController < ApplicationController
   def index
   end
 
+  # products
   def all_products
     render templates: 'all_products', layout: false
   end
@@ -14,6 +15,7 @@ class MainController < ApplicationController
     render templates: 'new_product', layout: false
   end
 
+  # categories
   def all_categories
     render templates: 'all_categories', layout: false
   end
@@ -24,5 +26,14 @@ class MainController < ApplicationController
 
   def new_category
     render templates: 'new_category', layout: false
+  end
+
+  # devise
+  def registration
+    render templates: 'registration', layout: false
+  end
+
+  def sign_in
+    render templates: 'sign_in', layout: false
   end
 end

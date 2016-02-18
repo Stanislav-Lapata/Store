@@ -1,0 +1,27 @@
+html ng-app="Store"
+  head
+    title Store
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+    base href="/"
+  body
+    .row
+      .col-sm-12.col-xs-12
+        nav.navbar.navbar-default
+          .container-fluid
+              ul.nav.navbar-nav.navbar-left
+                li ui-sref-active="active"
+                  a ui-sref="categories" Home
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a href="" ng-click="signOut()" Sign out
+                li
+                  p.navbar-text
+                    | {{user.first_name}}&nbsp;{{user.last_name}}
+                li ui-sref-active="active"
+                  a ui-sref="signIn" Sign in
+                li ui-sref-active="active"
+                  a ui-sref="registration" Registration
+    = yield
+
